@@ -59,7 +59,7 @@ body {
 }
 
 .header-line {
-    padding-top: 10px;
+    padding-top: 30px;
     display: flex;
     align-items: center;
     justify-content: space-around;
