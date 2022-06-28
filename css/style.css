@@ -49,6 +49,83 @@ body {
 .container {
     margin: 0px 166px;
 }
+
+/* Прелодер */
+
+
+.preloader {
+    /*фиксированное позиционирование*/
+    position: fixed;
+    /* координаты положения */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* фоновый цвет элемента */
+    background: #e0e0e0;
+    /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+    z-index: 1001;
+  }
+
+  .preloader__row {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+  }
+
+  .preloader__item {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    background-color: rgba(214, 126, 53, 1);
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    animation: preloader-bounce 2s infinite ease-in-out;
+  }
+
+  .preloader__item:last-child {
+    top: auto;
+    bottom: 0;
+    animation-delay: -1s;
+  }
+
+  @keyframes preloader-rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes preloader-bounce {
+
+    0%,
+    100% {
+      transform: scale(0);
+    }
+
+    50% {
+      transform: scale(1);
+    }
+  }
+
+  .loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+  }
+
+  .loaded .preloader {
+    display: none;
+  }
+
+
+
+
 /* Шапка */
 .header {
     background-image: url(../img/hero\ image.png);
@@ -121,19 +198,7 @@ body {
     filter: brightness(80%);
 }
 
-.cart {
-    position: relative;
 
-    border-right: 1px solid #FFFFFF;
-    padding-right: 10px;
-    height: 50px;
-}
-
-.cart-img {
-    position: absolute;
-    top: 18px;
-    right: 7px;
-}
 
 .num {
     color: #fff;
@@ -325,6 +390,8 @@ body {
 	}
 }
 /* Конец кнопки */
+
+
 .header-down {
     position: relative;
 }
@@ -339,13 +406,15 @@ body {
     position: absolute;
     left: 0;
 
-    margin-top: 222px;
-    margin-bottom: 12px;
+    margin-top: 122px;
+    margin-bottom: 112px;
+    
 }
 
 .header-suptitle {
     color: #fff;
     font-size: 18px;
+    margin-top: 10px;
     font-family: 'Open Sans', sans-serif;
 
 
@@ -357,7 +426,7 @@ body {
     height: 2px;
     width: 61px;
     background-color: #fff;
-    top: 127px;
+    top: 155px;
     left: 15px;
 }
 
@@ -367,24 +436,8 @@ body {
     height: 2px;
     width: 61px;
     background-color: #fff;
-    top: 127px;
+    top: 155px;
     left: 318px;
-}
-/* Кнопка заказать ремонт */
-.header-button{
-    background-color: rgba(214, 126, 53, 1);
-    padding: 14px 28px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    transition: color 0.3s linear;
-    border-radius: 3px
-}
-
-.header-button:hover {
-    color: #d81d1d;
 }
 
 
@@ -512,6 +565,7 @@ letter-spacing: 3px;
 }
 .imgages-1:hover{
     filter: blur(2px);
+    
 }
 
 .imgages-2 {
@@ -1097,6 +1151,11 @@ button {
     }
 
 }
+
+
+
+
+
 
 
 
